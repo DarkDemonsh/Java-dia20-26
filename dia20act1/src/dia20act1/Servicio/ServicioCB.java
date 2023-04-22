@@ -5,70 +5,67 @@ import java.util.Scanner;
 
 public class ServicioCB {
     Scanner leer = new Scanner(System.in);
+    CuentaBancaria c1 = new CuentaBancaria();
     
     public CuentaBancaria crear_cuenta(){
         
         System.out.println("Ingrese el DNI");
-        long dnic = leer.nextLong();
+        c1.setDnic(leer.nextLong());
         
         System.out.println("Ingrese el numero de cuenta");
-        int numcuenta = leer.nextInt();
+        c1.setNumcuenta(leer.nextInt());
         
         System.out.println("Ingrese el saldo actual");
-        double salact = leer.nextDouble();
+        c1.setSalact(leer.nextDouble());
         
-        return new CuentaBancaria(numcuenta,dnic,salact);   
+        return c1;
+           
     }
     
-    public double ingresar(double salact){
+    public void ingresar(CuentaBancaria c1){
         
         System.out.println("Ingrese la cantidad que quiera sumar");
         double ing = leer.nextDouble();
-        salact = salact + ing;
+        c1.setSalact(c1.getSalact() + ing);
         
-        return salact;
     }
     
-    public double retirar(double salact){
+    public void retirar(CuentaBancaria c1){
         
         System.out.println("Ingrese la cantidad de dinero que quiera retirar");
         double ret = leer.nextDouble();
         
-        salact = salact - ret;
+        c1.setSalact(c1.getSalact() - ret);
         
-        return salact;
     }
     
-    public double extrac_rapida(double salact){
+    public void extrac_rapida(CuentaBancaria c1){
         double i = 0;
         
         System.out.println("ingrese el saldo que quiera retirar menor al 20%"); 
         double er = leer.nextDouble();
         
-        i = 20*salact/100;
+        i = 20*c1.getSalact()/100;
         
         if(er < i){
-            salact = salact - er;
+            c1.setSalact(c1.getSalact() - er);
         }else{
             System.out.println("debe ser menor al 20% de su saldo");
         }
 
-        
-        return salact;
     }
     
-    public double con_sal(double salact){
+    public void con_sal(CuentaBancaria c1){
         
-        System.out.println("Su saldo actual es: "+salact);
+        System.out.println("Su saldo actual es: "+c1.getSalact());
         
-        return salact;
     }
     
-    public CuentaBancaria cons_dat(long dnic, double salact, int numcuenta){
+    public CuentaBancaria cons_dat(CuentaBancaria c1){
         
-        System.out.println("su DNI: "+dnic);
-        System.out.println("su numero de cuenta: "+numcuenta);
-        System.out.println("su saldo actual es: "+salact);
+        System.out.println("su DNI: "+c1.getDnic());
+        System.out.println("su numero de cuenta: "+c1.getNumcuenta());
+        System.out.println("su saldo actual es: "+c1.getSalact());
         
         return null;  
     }

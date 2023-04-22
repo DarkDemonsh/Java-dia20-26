@@ -26,23 +26,23 @@ public class Dia20act1 {
         
         switch(cb1.getNum()){
             case 1:
-                scb1.ingresar(cb1.getSalact());
+                scb1.ingresar(cb1);
                 System.out.println("");
                 break;
             case 2:
-                scb1.retirar(cb1.getSalact());
+                scb1.retirar(cb1);
                 System.out.println("");
                 break;
             case 3:
-                scb1.extrac_rapida(cb1.getSalact());
+                scb1.extrac_rapida(cb1);
                 System.out.println("");
                 break;
             case 4:
-                scb1.con_sal(cb1.getSalact());
+                scb1.con_sal(cb1);
                 System.out.println("");
                 break;
             case 5:
-                scb1.cons_dat(cb1.getDnic(), cb1.getSalact(), (int) cb1.getNumcuenta());
+                scb1.cons_dat(cb1);
                 System.out.println("");
                 break;
             case 6:
