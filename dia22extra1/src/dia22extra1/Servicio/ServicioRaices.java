@@ -14,47 +14,37 @@ public class ServicioRaices {
     
     public double getDiscriminate(Raices r){
         
-        r.setD(Math.pow(r.getB(),2)-4*r.getA()*r.getC());
+        r.setD(Math.pow(r.getB(),2)-(4*r.getA()*r.getC()));
         
         return r.getD();  
     }
     
     public boolean tieneRaices(Raices r){
-        boolean t = false;
-        
-        if(r.getD() >= 0){
-            t = true;
-        }
-        return t;
+        return r.getD() > 0;
     }
     
     public boolean tieneRaiz(Raices r){
-        boolean t = false;
-        if(r.getD() == 0){
-            t = true;
-        }
-        return t;
+        return r.getD() == 0;
     }
     
     public void obtener_raices(Raices r){
-        double a = (-r.getB()-r.getD());
-        double b = (-r.getB()+r.getD());
-        
-        System.out.println(a);
-        System.out.println(b);
-        
+      if(tieneRaices(r)){
+        System.out.println((-r.getB()-Math.sqrt(r.getD()))/(2*r.getA()));
+        System.out.println((-r.getB()+Math.sqrt(r.getD()))/(2*r.getA()));
+      }
     }
     
     public void obtener_Raiz(Raices r){
-        
-        System.out.println(r.getD());
-        
+        if(tieneRaiz(r)){
+        System.out.println((-r.getB()+Math.sqrt(r.getD()))/(2*r.getA()));
+        }
     }
     
     public void calcular(Raices r){
-        if(tieneRaiz(r)==true){
+        
+        if(tieneRaices(r)){
         obtener_raices(r);
-        }else if(tieneRaices(r) == true){
+        }else if(tieneRaiz(r)){
         obtener_Raiz(r);
         }else{
         System.out.println("NO EXISTE SOLUCION");
