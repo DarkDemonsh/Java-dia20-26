@@ -9,7 +9,7 @@ public class ServicioPersona {
     
     public boolean Mayor(Persona p){
         boolean t;
-        if(p.getEdad()>18){
+        if(p.getEdad()>=18){
         t = true;
         }else{
         t = false;
